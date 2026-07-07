@@ -8,7 +8,7 @@ import androidx.preference.ListPreference;
 import androidx.preference.SwitchPreference;
 import androidx.preference.SwitchPreferenceCompat;
 
-import git.artdeell.mojo.R;
+import com.banglalauncher.app.R;
 
 import net.kdt.pojavlaunch.Architecture;
 import net.kdt.pojavlaunch.plugins.LibraryPlugin;

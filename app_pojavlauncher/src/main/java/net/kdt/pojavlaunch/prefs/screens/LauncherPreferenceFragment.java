@@ -13,7 +13,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
 import net.kdt.pojavlaunch.LauncherActivity;
-import git.artdeell.mojo.R;
+import com.banglalauncher.app.R;
 import net.kdt.pojavlaunch.prefs.LauncherPreferences;
 
 /**

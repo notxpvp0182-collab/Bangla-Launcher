@@ -35,7 +35,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import git.artdeell.mojo.R;
+import com.banglalauncher.app.R;
 
 public class GameRunner {
     /**

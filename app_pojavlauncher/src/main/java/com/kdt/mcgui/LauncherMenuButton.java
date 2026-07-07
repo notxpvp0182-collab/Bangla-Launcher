@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.res.ResourcesCompat;
 
 
-import git.artdeell.mojo.R;
+import com.banglalauncher.app.R;
 
 import fr.spse.extended_view.ExtendedButton;
 

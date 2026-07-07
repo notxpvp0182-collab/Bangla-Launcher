@@ -14,7 +14,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import git.artdeell.mojo.R;
+import com.banglalauncher.app.R;
 
 public class RendererCompatUtil {
     private static RenderersList sCompatibleRenderers;
