@@ -108,8 +108,8 @@ public class CustomCursorOverlay extends View {
         float drawW = mCursorBitmap.getWidth() * cursorScale;
         float drawH = mCursorBitmap.getHeight() * cursorScale;
 
-        float px = GLFW.cursorX * getWidth();
-        float py = GLFW.cursorY * getHeight();
+        float px = (float) (GLFW.cursorX * getWidth());
+        float py = (float) (GLFW.cursorY * getHeight());
 
         // Anchor at the top-left tip of the cursor image, matching typical arrow-cursor hotspot behavior.
         android.graphics.RectF dest = new android.graphics.RectF(px, py, px + drawW, py + drawH);

@@ -5,6 +5,7 @@ import android.graphics.*;
 import android.util.*;
 
 import androidx.core.content.res.ResourcesCompat;
+import androidx.core.content.ContextCompat;
 
 import com.banglalauncher.app.R;
 
@@ -23,6 +24,7 @@ public class MineButton extends androidx.appcompat.widget.AppCompatButton {
 		setTypeface(ResourcesCompat.getFont(getContext(), R.font.noto_sans_bold));
 		setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.mine_button_background, null));
 		setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(R.dimen._13ssp));
+		setTextColor(ContextCompat.getColor(getContext(), R.color.primary_text));
 	}
 
 }

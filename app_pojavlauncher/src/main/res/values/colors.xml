@@ -14,6 +14,14 @@
     <color name="minebutton_color">@color/brand_green_light</color>
     <color name="accent_secondary">@color/brand_red</color>
 
+    <!-- Glass/outline button style: transparent fill, colored stroke -->
+    <color name="mine_button_stroke">@color/brand_green_light</color>
+    <color name="mine_button_stroke_pressed">@color/brand_red</color>
+    <color name="mine_button_fill_idle">#00000000</color>
+    <color name="mine_button_fill_pressed">#2612946B</color>
+    <color name="mine_button_fill_disabled">#00000000</color>
+    <color name="mine_button_stroke_disabled">#4DAEB8B3</color>
+
     <color name="background_app">#121412</color>
     <color name="divider">@color/background_overlay</color>
     <color name="background_overlay">#2B2F2C</color>
@@ -23,5 +31,4 @@
 
     <color name="primary_text">#FFFFFF</color>
     <color name="secondary_text">#AEB8B3</color>
-    <color name="checkbox_text_color">@color/primary_text</color>
 </resources>
