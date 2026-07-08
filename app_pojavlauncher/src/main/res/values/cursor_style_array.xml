@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cursor_style_entries">
+        <item>@string/cursor_style_classic</item>
+        <item>@string/cursor_style_green</item>
+        <item>@string/cursor_style_dot</item>
+        <item>@string/cursor_style_cross</item>
+    </string-array>
+    <string-array name="cursor_style_values">
+        <item>classic</item>
+        <item>green</item>
+        <item>dot</item>
+        <item>cross</item>
+    </string-array>
+</resources>

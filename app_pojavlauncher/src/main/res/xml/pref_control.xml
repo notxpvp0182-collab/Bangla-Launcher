@@ -99,6 +99,30 @@
             android:title="@string/preference_mouse_start_title"
             android:summary="@string/preference_mouse_start_description"
             android:icon="@drawable/ic_px_virtual_mouse"/>
+
+        <SwitchPreference
+            android:key="useCustomCursor"
+            android:defaultValue="false"
+            android:title="@string/preference_custom_cursor_title"
+            android:summary="@string/preference_custom_cursor_description"
+            android:icon="@drawable/ic_cursor_classic"/>
+
+        <ListPreference
+            android:key="cursorStylePreset"
+            android:defaultValue="classic"
+            android:title="@string/preference_cursor_style_title"
+            android:summary="@string/preference_cursor_style_description"
+            android:entries="@array/cursor_style_entries"
+            android:entryValues="@array/cursor_style_values"
+            android:dependency="useCustomCursor"
+            android:icon="@drawable/ic_cursor_green"/>
+
+        <net.kdt.pojavlaunch.prefs.CursorImagePickerPreference
+            android:key="customCursorImagePath"
+            android:title="@string/preference_cursor_custom_image_title"
+            android:summary="@string/preference_cursor_custom_image_description"
+            android:dependency="useCustomCursor"
+            android:icon="@drawable/ic_cursor_dot"/>
     </PreferenceCategory>
 
     <PreferenceCategory

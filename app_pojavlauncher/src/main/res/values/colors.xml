@@ -3,14 +3,25 @@
     <color name="control_button_color">#4CC4C4C4</color>
     <color name="control_button_pressed_color">#4D000000</color>
 
-    <color name="minebutton_color">#91dffb</color>
-    <color name="background_app">#181818</color>
+    <!-- Bangla Launcher brand colors, inspired by the Bangladesh flag -->
+    <color name="brand_green">#006A4E</color>
+    <color name="brand_green_dark">#00432F</color>
+    <color name="brand_green_light">#12946B</color>
+    <color name="brand_red">#F42A41</color>
+    <color name="brand_red_dark">#C11F33</color>
+
+    <!-- Primary accent used across buttons, progress bars, selected states -->
+    <color name="minebutton_color">@color/brand_green_light</color>
+    <color name="accent_secondary">@color/brand_red</color>
+
+    <color name="background_app">#121412</color>
     <color name="divider">@color/background_overlay</color>
-    <color name="background_overlay">#464646</color>
-    <color name="background_status_bar">#242424</color>
-    <color name="background_bottom_bar">#232323</color>
+    <color name="background_overlay">#2B2F2C</color>
+    <color name="background_status_bar">#0D0F0D</color>
+    <color name="background_bottom_bar">#181B18</color>
     <color name="icon_outline_color">#FFFFFF</color>
 
     <color name="primary_text">#FFFFFF</color>
-    <color name="secondary_text">#B2B2B2</color>
+    <color name="secondary_text">#AEB8B3</color>
+    <color name="checkbox_text_color">@color/primary_text</color>
 </resources>

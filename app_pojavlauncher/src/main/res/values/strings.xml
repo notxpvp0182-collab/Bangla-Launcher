@@ -492,4 +492,18 @@
     <string name="preference_category_keyboard">Keyboard settings</string>
     <string name="preference_keyboard_autopan_title">Enable keyboard panning</string>
     <string name="preference_keyboard_autopan_summary">Allows on-screen keyboard to move the game window instead of overlapping it if the last touch was below the visible zone. Has no effect on custom control layout buttons with the same function</string>
+
+    <string name="preference_custom_cursor_title">Use custom cursor</string>
+    <string name="preference_custom_cursor_description">Replace the default cursor with a preset style or your own image</string>
+    <string name="preference_cursor_style_title">Cursor style</string>
+    <string name="preference_cursor_style_description">Choose a preset cursor look</string>
+    <string name="preference_cursor_custom_image_title">Custom cursor image</string>
+    <string name="preference_cursor_custom_image_description">Pick an image from your device to use as the cursor</string>
+    <string name="cursor_style_classic">Classic</string>
+    <string name="cursor_style_green">Green</string>
+    <string name="cursor_style_dot">Dot</string>
+    <string name="cursor_style_cross">Crosshair</string>
+    <string name="cursor_image_picker_current">Current: custom image set</string>
+    <string name="cursor_image_picker_none">No custom image selected (using preset style)</string>
+    <string name="cursor_image_picker_clear">Clear custom image</string>
 </resources>

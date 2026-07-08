@@ -37,6 +37,14 @@
 				android:visibility="gone"
                 app:defaultCursorDrawable="@drawable/ic_mouse_pointer"/>
 
+			<net.kdt.pojavlaunch.customcontrols.mouse.CustomCursorOverlay
+				android:id="@+id/main_custom_cursor_overlay"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:focusable="false"
+				android:translationZ="2dp"
+				android:visibility="gone"/>
+
 
 			<net.kdt.pojavlaunch.customcontrols.keyboard.TouchCharInput
 				android:id="@+id/mainTouchCharInput"

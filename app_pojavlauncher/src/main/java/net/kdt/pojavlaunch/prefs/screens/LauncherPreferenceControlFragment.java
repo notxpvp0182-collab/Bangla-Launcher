@@ -2,17 +2,63 @@ package net.kdt.pojavlaunch.prefs.screens;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.preference.PreferenceCategory;
 
 import com.banglalauncher.app.R;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.prefs.CustomSeekBarPreference;
+import net.kdt.pojavlaunch.prefs.CursorImagePickerPreference;
 import net.kdt.pojavlaunch.prefs.LauncherPreferences;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public class LauncherPreferenceControlFragment extends LauncherPreferenceFragment {
     private boolean mGyroAvailable = false;
+
+    private final ActivityResultLauncher<String> mImagePickerLauncher =
+            registerForActivityResult(new ActivityResultContracts.GetContent(), this::onCursorImagePicked);
+
+    private void onCursorImagePicked(Uri uri) {
+        if (uri == null) return;
+        if (!isAdded()) return;
+        Context context = getContext();
+        if (context == null) return;
+        try {
+            File destDir = new File(context.getFilesDir(), "cursor");
+            if (!destDir.exists() && !destDir.mkdirs()) {
+                throw new java.io.IOException("Failed to create cursor image directory");
+            }
+            File destFile = new File(destDir, "custom_cursor.png");
+            try (InputStream in = context.getContentResolver().openInputStream(uri);
+                 OutputStream out = new FileOutputStream(destFile)) {
+                if (in == null) throw new java.io.IOException("Failed to open picked image");
+                byte[] buffer = new byte[8192];
+                int read;
+                while ((read = in.read(buffer)) != -1) {
+                    out.write(buffer, 0, read);
+                }
+            }
+            getPreferenceManager().getSharedPreferences().edit()
+                    .putString("customCursorImagePath", destFile.getAbsolutePath())
+                    .apply();
+            CursorImagePickerPreference picker = requirePreference("customCursorImagePath",
+                    CursorImagePickerPreference.class);
+            picker.refreshSummary();
+            Toast.makeText(context, R.string.cursor_image_picker_current, Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
     @Override
     public void onCreatePreferences(Bundle b, String str) {
         // Get values
@@ -71,6 +117,31 @@ public class LauncherPreferenceControlFragment extends LauncherPreferenceFragmen
                 CustomSeekBarPreference.class);
         gyroSampleRateSeek.setValue(gyroSampleRate);
         gyroSampleRateSeek.setSuffix(" ms");
+
+        CursorImagePickerPreference cursorImagePicker = requirePreference("customCursorImagePath",
+                CursorImagePickerPreference.class);
+        cursorImagePicker.refreshSummary();
+        cursorImagePicker.setOnPickRequestedListener(new CursorImagePickerPreference.OnPickRequestedListener() {
+            @Override
+            public void onPickRequested() {
+                mImagePickerLauncher.launch("image/*");
+            }
+
+            @Override
+            public void onClearRequested() {
+                getPreferenceManager().getSharedPreferences().edit()
+                        .remove("customCursorImagePath")
+                        .apply();
+                Context ctx = getContext();
+                if (ctx != null) {
+                    File f = new File(ctx.getFilesDir(), "cursor/custom_cursor.png");
+                    //noinspection ResultOfMethodCallIgnored
+                    f.delete();
+                }
+                cursorImagePicker.refreshSummary();
+            }
+        });
+
         computeVisibility();
     }
 

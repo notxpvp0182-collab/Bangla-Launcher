@@ -52,6 +52,7 @@ import net.kdt.pojavlaunch.customcontrols.keyboard.LwjglCharSender;
 import net.kdt.pojavlaunch.customcontrols.keyboard.TouchCharInput;
 import net.kdt.pojavlaunch.customcontrols.mouse.GyroControl;
 import net.kdt.pojavlaunch.customcontrols.mouse.HotbarView;
+import net.kdt.pojavlaunch.customcontrols.mouse.CustomCursorOverlay;
 import net.kdt.pojavlaunch.instances.Instance;
 import net.kdt.pojavlaunch.instances.Instances;
 import net.kdt.pojavlaunch.lifecycle.ContextExecutor;
@@ -83,6 +84,8 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
     private LauncherGLSurface launcherGLView;
     private static WeakReference<GLFWCursorView> weakCursor;
     private GLFWCursorView cursor;
+    private CustomCursorOverlay mCustomCursorOverlay;
+    private static WeakReference<CustomCursorOverlay> weakCustomCursorOverlay;
     private LoggerView loggerView;
     private DrawerLayout drawerLayout;
     private ListView navDrawer;
@@ -214,6 +217,7 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
         mDrawerPullButton.setOnClickListener(v -> onClickedMenu());
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         cursor.setCursorScale(LauncherPreferences.PREF_MOUSESCALE);
+        mCustomCursorOverlay.reloadCursorBitmap();
 
         try {
             File latestLogFile = new File(Tools.DIR_GAME_HOME, "latestlog.txt");
@@ -251,7 +255,16 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
 
             launcherGLView.setSurfaceReadyListener(() -> {
                 try {
-                    Tools.runOnUiThread(() -> { if(PREF_VIRTUAL_MOUSE_START) cursor.setVisibility(View.VISIBLE); });
+                    Tools.runOnUiThread(() -> {
+                        if(PREF_VIRTUAL_MOUSE_START) {
+                            if (LauncherPreferences.DEFAULT_PREF.getBoolean("useCustomCursor", false)) {
+                                mCustomCursorOverlay.setVisibility(View.VISIBLE);
+                                mCustomCursorOverlay.startTracking();
+                            } else {
+                                cursor.setVisibility(View.VISIBLE);
+                            }
+                        }
+                    });
                     runCraft(version, classpath);
                 }catch (Throwable e){
                     Tools.showErrorRemote(e);
@@ -295,6 +308,8 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
         launcherGLView = findViewById(R.id.main_game_render_view);
         cursor = findViewById(R.id.main_touchpad);
         weakCursor = new WeakReference<>(cursor);
+        mCustomCursorOverlay = findViewById(R.id.main_custom_cursor_overlay);
+        weakCustomCursorOverlay = new WeakReference<>(mCustomCursorOverlay);
         drawerLayout = findViewById(R.id.main_drawer_options);
         navDrawer = findViewById(R.id.main_navigation_view);
         loggerView = findViewById(R.id.mainLoggerView);
@@ -450,19 +465,40 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
     public static void toggleMouse(Context ctx) {
         // Avoid going through the JNI each time.
         if (GLFW.isGrabbing()) return;
-        GLFWCursorView cursorView = Tools.getWeakReference(weakCursor);
-        if(cursorView == null) return;
+
+        boolean useCustomCursor = LauncherPreferences.DEFAULT_PREF.getBoolean("useCustomCursor", false);
         int toastString = 0;
-        switch (cursorView.getVisibility()) {
-            case View.GONE:
-            case View.INVISIBLE:
-                toastString = R.string.control_mouseon;
-                cursorView.setVisibility(View.VISIBLE);
-                break;
-            case View.VISIBLE:
-                toastString = R.string.control_mouseoff;
-                cursorView.setVisibility(View.GONE);
-                break;
+
+        if (useCustomCursor) {
+            CustomCursorOverlay overlay = Tools.getWeakReference(weakCustomCursorOverlay);
+            if (overlay == null) return;
+            switch (overlay.getVisibility()) {
+                case View.GONE:
+                case View.INVISIBLE:
+                    toastString = R.string.control_mouseon;
+                    overlay.setVisibility(View.VISIBLE);
+                    overlay.startTracking();
+                    break;
+                case View.VISIBLE:
+                    toastString = R.string.control_mouseoff;
+                    overlay.setVisibility(View.GONE);
+                    overlay.stopTracking();
+                    break;
+            }
+        } else {
+            GLFWCursorView cursorView = Tools.getWeakReference(weakCursor);
+            if(cursorView == null) return;
+            switch (cursorView.getVisibility()) {
+                case View.GONE:
+                case View.INVISIBLE:
+                    toastString = R.string.control_mouseon;
+                    cursorView.setVisibility(View.VISIBLE);
+                    break;
+                case View.VISIBLE:
+                    toastString = R.string.control_mouseoff;
+                    cursorView.setVisibility(View.GONE);
+                    break;
+            }
         }
 
         if(toastString != 0) Toast.makeText(ctx, toastString, Toast.LENGTH_SHORT).show();
