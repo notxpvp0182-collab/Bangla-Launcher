@@ -11,6 +11,12 @@
 
         <item name="android:textSize">@dimen/_14ssp</item>
 
+        <item name="themeAccent">@color/brand_green_light</item>
+        <item name="themeAccentSecondary">@color/brand_red</item>
+        <item name="themeBackgroundApp">@color/background_app</item>
+        <item name="themeBackgroundOverlay">@color/background_overlay</item>
+        <item name="themeBackgroundStatusBar">@color/background_status_bar</item>
+        <item name="themeBackgroundBottomBar">@color/background_bottom_bar</item>
     </style>
 
     <style name="LauncherMenuButton.Universal" parent="LauncherMenuButton">
@@ -20,3 +26,4 @@
     </style>
 
 </resources>
+

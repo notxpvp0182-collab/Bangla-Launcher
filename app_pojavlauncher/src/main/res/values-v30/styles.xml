@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- This API level enables the edge-to-edge functionality of the launcher, and requires these to be set for the launcher to look good -->
+<!-- This API level enables the edge-to-edge functionality of the launcher, and requires these to be set for the launcher to look good.
+     IMPORTANT: on API 30+, Android resolves AppTheme using THIS file, not values/styles.xml,
+     so the six themeXxx color attrs must be repeated here (or any layout using ?attr/themeXxx
+     will crash with "Failed to resolve attribute"). Keep this in sync with values/styles.xml
+     and with whichever preset is selected - update runtime resolution happens via
+     ThemeUtils.applySelectedTheme(), which calls setTheme() with a *different* style resource
+     (e.g. AppTheme.Blue) that itself inherits from this API's AppTheme, so it still works. -->
 <resources>
     <style name="AppTheme" parent="@style/Theme.AppCompat.NoActionBar">
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:enforceNavigationBarContrast">false</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:enforceStatusBarContrast">false</item>
+
+        <item name="themeAccent">@color/brand_green_light</item>
+        <item name="themeAccentSecondary">@color/brand_red</item>
+        <item name="themeBackgroundApp">@color/background_app</item>
+        <item name="themeBackgroundOverlay">@color/background_overlay</item>
+        <item name="themeBackgroundStatusBar">@color/background_status_bar</item>
+        <item name="themeBackgroundBottomBar">@color/background_bottom_bar</item>
     </style>
 </resources>
+
+
