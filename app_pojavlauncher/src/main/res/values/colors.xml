@@ -23,5 +23,4 @@
 
     <color name="primary_text">#FFFFFF</color>
     <color name="secondary_text">#AEB8B3</color>
-    <color name="checkbox_text_color">@color/primary_text</color>
 </resources>
