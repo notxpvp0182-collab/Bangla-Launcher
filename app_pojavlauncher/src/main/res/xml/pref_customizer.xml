@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <net.kdt.pojavlaunch.prefs.BackButtonPreference/>
+
+    <PreferenceCategory
+        android:title="@string/preference_category_customizer">
+
+        <ListPreference
+            android:key="themePreset"
+            android:defaultValue="default"
+            android:title="@string/preference_theme_preset_title"
+            android:summary="@string/preference_theme_preset_description"
+            android:entries="@array/theme_preset_entries"
+            android:entryValues="@array/theme_preset_values"
+            android:icon="@drawable/ic_cursor_green"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

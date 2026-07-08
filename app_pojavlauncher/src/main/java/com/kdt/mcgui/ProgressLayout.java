@@ -82,7 +82,7 @@ public class ProgressLayout extends ConstraintLayout implements View.OnClickList
         mLinearLayout = findViewById(R.id.progress_linear_layout);
         mTaskNumberDisplayer = findViewById(R.id.progress_textview);
         mFlipArrow = findViewById(R.id.progress_flip_arrow);
-        setBackgroundColor(getResources().getColor(R.color.background_bottom_bar));
+        setBackgroundColor(net.kdt.pojavlaunch.prefs.ThemeUtils.resolveThemeColor(getContext(), com.banglalauncher.app.R.attr.themeBackgroundBottomBar));
         setOnClickListener(this);
     }
 

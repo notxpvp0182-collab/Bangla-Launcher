@@ -253,7 +253,7 @@ public final class Tools {
         int bgColor;
         // The status bars are completely transparent and will take their color from the inset view
         // background drawable.
-        if(!noSystemBars) bgColor = activity.getResources().getColor(R.color.background_status_bar);
+        if(!noSystemBars) bgColor = net.kdt.pojavlaunch.prefs.ThemeUtils.resolveThemeColor(activity, com.banglalauncher.app.R.attr.themeBackgroundStatusBar);
         else bgColor = Color.BLACK;
 
         // On API 35 onwards, apps are edge-to-edge by default and are controlled entirely though the

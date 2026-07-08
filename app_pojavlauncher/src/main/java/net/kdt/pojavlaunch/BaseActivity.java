@@ -18,6 +18,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        net.kdt.pojavlaunch.prefs.ThemeUtils.applySelectedTheme(this);
         super.onCreate(savedInstanceState);
         LocaleUtils.setLocale(this);
         Tools.setInsetsMode(this, setFullscreen(), shouldIgnoreNotch());

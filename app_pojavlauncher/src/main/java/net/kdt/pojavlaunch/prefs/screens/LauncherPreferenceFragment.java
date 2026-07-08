@@ -25,7 +25,8 @@ public class LauncherPreferenceFragment extends PreferenceFragmentCompat impleme
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        view.setBackgroundColor(getResources().getColor(R.color.background_app));
+        view.setBackgroundColor(net.kdt.pojavlaunch.prefs.ThemeUtils.resolveThemeColor(
+                requireContext(), com.banglalauncher.app.R.attr.themeBackgroundApp));
         super.onViewCreated(view, savedInstanceState);
     }
 

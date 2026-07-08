@@ -64,7 +64,7 @@ public class AccountSpinner extends AppCompatSpinner implements LoginListener, A
 
         @Override
         public boolean onValueSet(String key, @NonNull String value) {
-            mLoginBarPaint.setColor(getResources().getColor(R.color.minebutton_color));
+            mLoginBarPaint.setColor(net.kdt.pojavlaunch.prefs.ThemeUtils.resolveThemeColor(getContext(), com.banglalauncher.app.R.attr.themeAccent));
             BackgroundLogin backgroundLogin = mAuthType.createAuth();
             backgroundLogin.createAccount(AccountSpinner.this, value);
             return false;
@@ -128,8 +128,8 @@ public class AccountSpinner extends AppCompatSpinner implements LoginListener, A
         setOnItemSelectedListener(this);
         reload();
 
-        setBackgroundColor(getResources().getColor(R.color.background_status_bar));
-        mLoginBarPaint.setColor(getResources().getColor(R.color.minebutton_color));
+        setBackgroundColor(net.kdt.pojavlaunch.prefs.ThemeUtils.resolveThemeColor(getContext(), com.banglalauncher.app.R.attr.themeBackgroundStatusBar));
+        mLoginBarPaint.setColor(net.kdt.pojavlaunch.prefs.ThemeUtils.resolveThemeColor(getContext(), com.banglalauncher.app.R.attr.themeAccent));
         mLoginBarPaint.setStrokeWidth(getResources().getDimensionPixelOffset(R.dimen._2sdp));
         mLoginStepAnimator.addUpdateListener(this);
         mLoginStep = mMaxSteps;

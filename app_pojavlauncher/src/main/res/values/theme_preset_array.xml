@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="theme_preset_entries">
+        <item>@string/theme_preset_default</item>
+        <item>@string/theme_preset_blue</item>
+        <item>@string/theme_preset_orange</item>
+        <item>@string/theme_preset_crimson</item>
+        <item>@string/theme_preset_teal</item>
+    </string-array>
+    <string-array name="theme_preset_values">
+        <item>default</item>
+        <item>blue</item>
+        <item>orange</item>
+        <item>crimson</item>
+        <item>teal</item>
+    </string-array>
+</resources>

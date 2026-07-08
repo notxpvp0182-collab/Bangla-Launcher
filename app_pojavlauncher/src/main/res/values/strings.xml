@@ -506,4 +506,13 @@
     <string name="cursor_image_picker_current">Current: custom image set</string>
     <string name="cursor_image_picker_none">No custom image selected (using preset style)</string>
     <string name="cursor_image_picker_clear">Clear custom image</string>
+
+    <string name="preference_category_customizer">Theme Customizer</string>
+    <string name="preference_theme_preset_title">Color theme</string>
+    <string name="preference_theme_preset_description">Choose a color scheme for the whole app</string>
+    <string name="theme_preset_default">Bangladesh (Green &amp; Red)</string>
+    <string name="theme_preset_blue">Blue &amp; Purple</string>
+    <string name="theme_preset_orange">Dark &amp; Orange</string>
+    <string name="theme_preset_crimson">Crimson &amp; Gold</string>
+    <string name="theme_preset_teal">Teal &amp; Pink</string>
 </resources>

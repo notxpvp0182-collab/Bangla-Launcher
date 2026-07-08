@@ -5,12 +5,54 @@
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:statusBarColor">@color/background_status_bar</item>
-        <item name="android:navigationBarColor">@color/background_app</item>
+        <item name="android:statusBarColor">?attr/themeBackgroundStatusBar</item>
+        <item name="android:navigationBarColor">?attr/themeBackgroundApp</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
 
         <item name="android:textSize">@dimen/_12ssp</item>
 
+        <item name="themeAccent">@color/brand_green_light</item>
+        <item name="themeAccentSecondary">@color/brand_red</item>
+        <item name="themeBackgroundApp">@color/background_app</item>
+        <item name="themeBackgroundOverlay">@color/background_overlay</item>
+        <item name="themeBackgroundStatusBar">@color/background_status_bar</item>
+        <item name="themeBackgroundBottomBar">@color/background_bottom_bar</item>
+    </style>
+
+    <style name="AppTheme.Blue" parent="AppTheme">
+        <item name="themeAccent">#5B7FFF</item>
+        <item name="themeAccentSecondary">#B45BFF</item>
+        <item name="themeBackgroundApp">#121218</item>
+        <item name="themeBackgroundOverlay">#282A38</item>
+        <item name="themeBackgroundStatusBar">#0D0D12</item>
+        <item name="themeBackgroundBottomBar">#181822</item>
+    </style>
+
+    <style name="AppTheme.Orange" parent="AppTheme">
+        <item name="themeAccent">#FF8A3D</item>
+        <item name="themeAccentSecondary">#FFC53D</item>
+        <item name="themeBackgroundApp">#141210</item>
+        <item name="themeBackgroundOverlay">#2E2822</item>
+        <item name="themeBackgroundStatusBar">#0F0D0B</item>
+        <item name="themeBackgroundBottomBar">#1C1815</item>
+    </style>
+
+    <style name="AppTheme.Crimson" parent="AppTheme">
+        <item name="themeAccent">#E63950</item>
+        <item name="themeAccentSecondary">#F4B93D</item>
+        <item name="themeBackgroundApp">#160E10</item>
+        <item name="themeBackgroundOverlay">#302026</item>
+        <item name="themeBackgroundStatusBar">#100A0B</item>
+        <item name="themeBackgroundBottomBar">#20151A</item>
+    </style>
+
+    <style name="AppTheme.Teal" parent="AppTheme">
+        <item name="themeAccent">#2DD4BF</item>
+        <item name="themeAccentSecondary">#FF5DA2</item>
+        <item name="themeBackgroundApp">#0E1414</item>
+        <item name="themeBackgroundOverlay">#22302E</item>
+        <item name="themeBackgroundStatusBar">#0A0F0F</item>
+        <item name="themeBackgroundBottomBar">#151F1E</item>
     </style>
 
     <style name="LauncherFragment_Divider">
@@ -40,3 +82,4 @@
         <item name="android:layout_height">match_parent</item>
     </style>
 </resources>
+

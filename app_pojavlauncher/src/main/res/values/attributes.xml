@@ -6,4 +6,13 @@
         <!-- Redefine to be able to fetch the value -->
         <attr name="android:min" />
     </declare-styleable>
+
+    <!-- Runtime-switchable theme colors. Every layout that should react to the
+         Theme Customizer must reference these via ?attr/xxx instead of @color/xxx. -->
+    <attr name="themeAccent" format="color" />
+    <attr name="themeAccentSecondary" format="color" />
+    <attr name="themeBackgroundApp" format="color" />
+    <attr name="themeBackgroundOverlay" format="color" />
+    <attr name="themeBackgroundStatusBar" format="color" />
+    <attr name="themeBackgroundBottomBar" format="color" />
 </resources>
