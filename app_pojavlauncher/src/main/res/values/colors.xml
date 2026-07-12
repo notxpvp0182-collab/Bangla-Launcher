@@ -1,34 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="control_button_color">#4CC4C4C4</color>
-    <color name="control_button_pressed_color">#4D000000</color>
-
-    <!-- Bangla Launcher brand colors, inspired by the Bangladesh flag -->
-    <color name="brand_green">#006A4E</color>
-    <color name="brand_green_dark">#00432F</color>
-    <color name="brand_green_light">#12946B</color>
-    <color name="brand_red">#F42A41</color>
-    <color name="brand_red_dark">#C11F33</color>
-
-    <!-- Primary accent used across buttons, progress bars, selected states -->
-    <color name="minebutton_color">@color/brand_green_light</color>
-    <color name="accent_secondary">@color/brand_red</color>
-
-    <!-- Glass/outline button style: transparent fill, colored stroke -->
-    <color name="mine_button_stroke">@color/brand_green_light</color>
-    <color name="mine_button_stroke_pressed">@color/brand_red</color>
-    <color name="mine_button_fill_idle">#00000000</color>
-    <color name="mine_button_fill_pressed">#2612946B</color>
-    <color name="mine_button_fill_disabled">#00000000</color>
-    <color name="mine_button_stroke_disabled">#4DAEB8B3</color>
-
-    <color name="background_app">#121412</color>
-    <color name="divider">@color/background_overlay</color>
-    <color name="background_overlay">#2B2F2C</color>
-    <color name="background_status_bar">#0D0F0D</color>
-    <color name="background_bottom_bar">#181B18</color>
-    <color name="icon_outline_color">#FFFFFF</color>
-
-    <color name="primary_text">#FFFFFF</color>
-    <color name="secondary_text">#AEB8B3</color>
+    <!-- Primary Colors - Bangladesh Flag Inspired -->
+    <color name="primary_red">#CE1126</color>
+    <color name="primary_green">#007A5E</color>
+    <color name="primary_dark_green">#004D34</color>
+    <color name="accent_gold">#FFD700</color>
+    
+    <!-- Dark Theme Colors -->
+    <color name="dark_bg_primary">#121212</color>
+    <color name="dark_bg_secondary">#1E1E1E</color>
+    <color name="dark_bg_tertiary">#2D2D2D</color>
+    <color name="dark_surface">#1F1F1F</color>
+    <color name="dark_text_primary">#FFFFFF</color>
+    <color name="dark_text_secondary">#B3B3B3</color>
+    
+    <!-- Light Theme Colors (Fallback) -->
+    <color name="light_bg_primary">#FFFFFF</color>
+    <color name="light_bg_secondary">#F5F5F5</color>
+    <color name="light_surface">#EFEFEF</color>
+    <color name="light_text_primary">#212121</color>
+    <color name="light_text_secondary">#757575</color>
+    
+    <!-- Glass Morphism -->
+    <color name="glass_light">#FFFFFF</color>
+    <color name="glass_light_transparent">#80FFFFFF</color>
+    <color name="glass_dark">#1F1F1F</color>
+    <color name="glass_dark_transparent">#801F1F1F</color>
+    
+    <!-- Status Colors -->
+    <color name="success">#4CAF50</color>
+    <color name="error">#F44336</color>
+    <color name="warning">#FF9800</color>
+    <color name="info">#2196F3</color>
+    
+    <!-- Component Colors -->
+    <color name="button_enabled">@color/primary_red</color>
+    <color name="button_disabled">#757575</color>
+    <color name="divider">#424242</color>
+    <color name="hint_text">#9E9E9E</color>
+    
+    <!-- Legacy compatibility -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
 </resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BanglaLauncherTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Primary Colors -->
+        <item name="colorPrimary">@color/primary_red</item>
+        <item name="colorPrimaryVariant">@color/primary_dark_green</item>
+        <item name="colorSecondary">@color/primary_green</item>
+        <item name="colorSecondaryVariant">@color/accent_gold</item>
+        
+        <!-- Status Colors -->
+        <item name="colorError">@color/error</item>
+        
+        <!-- Backgrounds -->
+        <item name="android:windowBackground">@color/dark_bg_primary</item>
+        <item name="android:colorBackground">@color/dark_bg_secondary</item>
+        <item name="android:colorForeground">@color/dark_text_primary</item>
+        
+        <!-- Text Colors -->
+        <item name="android:textColorPrimary">@color/dark_text_primary</item>
+        <item name="android:textColorSecondary">@color/dark_text_secondary</item>
+        <item name="android:textColorHint">@color/hint_text</item>
+        
+        <!-- Window Attributes -->
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:statusBarColor">@color/dark_bg_primary</item>
+        <item name="android:navigationBarColor">@color/dark_bg_primary</item>
+        
+        <!-- Action Bar (hidden) -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.Landscape" parent="BanglaLauncherTheme">
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>
