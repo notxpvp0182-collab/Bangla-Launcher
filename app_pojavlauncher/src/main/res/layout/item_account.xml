@@ -1,40 +1,69 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_height="@dimen/_52sdp"
     android:layout_width="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@drawable/glass_card_bg">
 
-    <fr.spse.extended_view.ExtendedTextView
-        android:id="@+id/account_item"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:gravity="center_vertical">
 
-        android:textSize="@dimen/_16ssp"
-        android:gravity="center_vertical"
-        android:drawablePadding="@dimen/_6sdp"
-        android:paddingStart="@dimen/_8sdp"
-        app:drawableStartSize="@dimen/_30sdp"
-        app:drawableEndSize="@dimen/_30sdp"
+        <!-- Avatar -->
+        <ImageView
+            android:id="@+id/account_avatar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_accounts"
+            android:contentDescription="@string/profile_name" />
 
-        tools:text="HELLO THERE"
-        tools:drawableStart="@mipmap/ic_launcher"
+        <!-- Account Info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="12dp">
 
+            <TextView
+                android:id="@+id/account_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Player Name"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/dark_text_primary" />
 
-        tools:ignore="RtlSymmetry" />
+            <TextView
+                android:id="@+id/account_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Microsoft Account"
+                android:textSize="12sp"
+                android:textColor="@color/dark_text_secondary"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
 
-    <!-- Fun fact, if I put an Image button, the spinner fails to put an onclick listener on the extended view -->
-    <ImageView
-        android:id="@+id/delete_account_button"
-        android:layout_width="@dimen/_52sdp"
-        android:layout_height="match_parent"
-        android:background="?attr/selectableItemBackground"
-        android:src="@drawable/ic_px_trash"
+        <!-- Actions -->
+        <ImageButton
+            android:id="@+id/btn_edit"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_edit"
+            android:contentDescription="@string/edit_profile"
+            android:layout_marginEnd="4dp" />
 
-        android:padding="@dimen/padding_moderate"
-        />
-
-</LinearLayout>
-
+        <ImageButton
+            android:id="@+id/btn_delete"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_delete"
+            android:contentDescription="@string/delete" />
+    </LinearLayout>
+</FrameLayout>
